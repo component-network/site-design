@@ -1,9 +1,7 @@
-<!-- Load Fira Code from Google Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap">
 
-<!-- Load Monaco Editor from our CDN -->
 <link rel="preconnect" href="https://viewscript.io">
 <link rel="stylesheet" href="https://viewscript.io/npm/monaco-editor@0.52.0/min/vs/editor/editor.main.css"
   data-name="vs/editor/editor.main">
@@ -17,13 +15,6 @@
   delete globalThis.require;
 </script>
 
-<codearea class="block border border-gray-500 border-solid box-border min-h-80 w-full" :compact>
-  <noscript>
-    <textarea autocomplete="off" autocorrect="off" class="border-none h-full p-2 resize-none w-full" :content="value"
-      :name :readonly spellcheck="false" style="font-family: 'Fira Code', monospace" wrap="off"></textarea>
-  </noscript>
-</codearea>
-
 <style>
   codearea {
     height: 55vw;
@@ -34,3 +25,10 @@
     max-height: calc(100vh - 40rem);
   }
 </style>
+
+<codearea class="block border border-gray-500 border-solid box-border h-full w-full" :compact>
+  <noscript>
+    <textarea :name :content="value" :readonly autocomplete="off" autocorrect="off" spellcheck="false" wrap="off"
+      class="border-none h-full p-2 resize-none w-full" style="font-family: 'Fira Code', monospace"></textarea>
+  </noscript>
+</codearea>

@@ -13,7 +13,7 @@ export interface Data {
 
 export default class {
   constructor({ id, language, readonly, value }: Data) {
-    this.domElement = document.querySelector(`#${id} > :first-child`)!;
+    this.domElement = document.getElementById(id)!;
 
     this.editor = globalMonaco.editor.create(this.domElement, {
       value,

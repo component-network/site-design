@@ -1,13 +1,13 @@
 export interface Context {
   component: {
-    data?: string;
+    context: string;
     draftHref: string;
     isDraft: boolean;
     isEditable: string;
     manageHref: string;
     publishHref: string;
     renderHref: string;
-    script?: string;
+    script: string;
     template: string;
     title: string;
   };

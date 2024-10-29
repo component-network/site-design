@@ -4,5 +4,5 @@ export interface Context {
   logoSrc: string;
   signInHref: string;
   signOutHref: string;
-  userStatusMessage: string;
+  userStatusMessage?: string;
 }
