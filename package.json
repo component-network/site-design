@@ -1,0 +1,9 @@
+{
+  "name": "ui",
+  "version": "0.0.0",
+  "author": "Alex Yuly",
+  "description": "The ui for component.network",
+  "dependencies": {
+    "monaco-editor": "^0.52.0"
+  }
+}

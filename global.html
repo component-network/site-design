@@ -1,0 +1,11 @@
+<meta itemprop="tailwind-preflight" content="false">
+<link rel="shortcut icon" type="image/png" :href="faviconHref">
+<link rel="element" as="nav-primary" href="/elements/nav-primary.html">
+
+<body class="bg-neutral-100 font-sans m-0">
+  <nav-primary></nav-primary>
+  <slot name="header"></slot>
+  <main class="mx-auto my-4 overflow-hidden" style="max-width: max(33%, 36rem)">
+    <slot></slot>
+  </main>
+</body>

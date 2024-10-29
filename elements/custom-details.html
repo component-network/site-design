@@ -1,0 +1,16 @@
+<details :compact class="bg-white border border-gray-500 border-solid h-auto p-2 rounded-lg shadow-md" :open="!closed">
+  <summary class="cursor-pointer font-bold overflow-hidden select-none text-ellipsis whitespace-nowrap">
+    <slot name="summary"></slot>
+  </summary>
+  <slot></slot>
+</details>
+
+<style>
+  details {
+    flex-basis: 32rem;
+  }
+
+  details[compact] {
+    flex-basis: initial;
+  }
+</style>
