@@ -13,6 +13,6 @@ export interface Context {
     description: string;
     href: string;
   };
-  search: string;
+  search?: string;
   userWelcomeMessage: string;
 }

@@ -1,6 +1,6 @@
 title: component.network
 context:
-  faviconHref: ${CLOUDFRONT_DOMAIN}/png/TheComponentNetwork-key-icon.png
-  logoSrc: ${CLOUDFRONT_DOMAIN}/png/TheComponentNetwork-key-icon.png
-  signInHref: ${COGNITO_DOMAIN}/oauth2/authorize?client_id=${COGNITO_CLIENT_ID}&response_type=code&scope=email&redirect_uri=${encodeURIComponent(COGNITO_REDIRECT_URI)}
-  signOutHref: ${COGNITO_DOMAIN}/logout?client_id=${COGNITO_CLIENT_ID}&logout_uri=${COGNITO_LOGOUT_URI}
+  faviconHref: ${AMAZON_CLOUDFRONT_DOMAIN}/png/TheComponentNetwork-key-icon.png
+  logoSrc: ${AMAZON_CLOUDFRONT_DOMAIN}/png/TheComponentNetwork-key-icon.png
+  signInHref: ${AMAZON_COGNITO_DOMAIN}/oauth2/authorize?client_id=${AMAZON_COGNITO_CLIENT_ID}&response_type=code&scope=email&redirect_uri=${AMAZON_COGNITO_REDIRECT_URI}
+  signOutHref: ${AMAZON_COGNITO_DOMAIN}/logout?client_id=${AMAZON_COGNITO_CLIENT_ID}&logout_uri=${AMAZON_COGNITO_LOGOUT_URI}

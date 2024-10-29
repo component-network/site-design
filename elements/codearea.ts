@@ -2,7 +2,7 @@ import type monaco from "monaco-editor";
 
 const globalMonaco = globalThis.monaco as typeof monaco;
 
-export interface Data {
+export interface Context {
   compact: boolean;
   id: string;
   language: string;
@@ -12,7 +12,7 @@ export interface Data {
 }
 
 export default class {
-  constructor({ id, language, readonly, value }: Data) {
+  constructor({ id, language, readonly, value }: Context) {
     this.domElement = document.getElementById(id)!;
 
     this.editor = globalMonaco.editor.create(this.domElement, {
