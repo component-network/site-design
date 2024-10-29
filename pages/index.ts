@@ -5,6 +5,7 @@ export interface Context {
     title: string;
   }>;
   currentPageTitle: string;
+  logoSrc: string;
   nextPage?: {
     description: string;
     href: string;

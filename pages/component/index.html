@@ -23,20 +23,6 @@
       <custom-codearea language="html" name="template" :readonly="!component.isEditable" :value="component.template">
       </custom-codearea>
     </custom-details>
-    <div class="flex flex-col flex-wrap gap-4" style="flex: 1 1 32rem">
-      <custom-details :action="component.draftHref" :readonly="!component.isEditable" compact
-        summary="Component Script">
-        <custom-codearea compact language="ts" name="script" :readonly="!component.isEditable"
-          :value="component.script">
-        </custom-codearea>
-      </custom-details>
-      <custom-details :action="component.draftHref" :readonly="!component.isEditable" compact
-        summary="Component Context">
-        <custom-codearea compact language="yaml" name="context" :readonly="!component.isEditable"
-          :value="component.context">
-        </custom-codearea>
-      </custom-details>
-    </div>
   </div>
 </custom-main>
 
