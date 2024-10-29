@@ -1,8 +1,5 @@
-<link rel="shortcut icon" type="image/png" :href="faviconHref">
-<meta itemprop="tailwind-preflight" content="false">
-
 <body class="bg-neutral-100 font-sans m-0">
-  <nav-primary is="nav" aria-label="Primary Navigation"
+  <nav aria-label="Primary Navigation"
     class="bg-white border-0 border-b border-gray-500 border-solid flex justify-between items-center overflow-hidden">
     <a href="/">
       <img :src="faviconHref" alt="The Component Network Homepage" height="384" width="1152" class="h-auto max-w-16">
@@ -14,9 +11,9 @@
       <a use-if="isUserSignedIn" :href="signOutHref">Sign out</a>
       <a use-if="!isUserSignedIn" :href="signInHref">Sign in</a>
     </section>
-  </nav-primary>
-  <slot name="header"></slot>
-  <main class="mx-auto my-4 overflow-hidden" style="max-width: max(33%, 36rem)">
-    <slot></slot>
-  </main>
+  </nav>
+  <slot></slot>
 </body>
+
+<link rel="shortcut icon" type="image/png" :href="faviconHref">
+<meta itemprop="tailwind-preflight" content="false">
