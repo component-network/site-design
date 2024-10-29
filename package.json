@@ -1,8 +1,8 @@
 {
-  "name": "@component-network/ui",
+  "name": "@component-network/site-gui",
   "version": "1.0.0",
   "author": "Alex Yuly",
-  "description": "The ui for component.network",
+  "description": "The GUI for https://component.network",
   "dependencies": {
     "monaco-editor": "^0.52.0"
   }

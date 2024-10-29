@@ -1,4 +1,6 @@
-export interface Context {
+import type { Context as GlobalContext } from "global";
+
+export interface Context extends GlobalContext {
   components: Array<{
     linkHref: string;
     renderHref: string;
