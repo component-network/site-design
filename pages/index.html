@@ -1,9 +1,10 @@
 <header class="text-center">
   <img :src="logoSrc" alt="The Component Network" height="384" width="1152"
     class="border border-gray-500 border-solid h-auto mt-4 shadow-lg"
-    style="max-width: min(calc(100vw - 2rem), calc(max(33%, 36rem) - 2rem))">
+    style="max-width: min(calc(100vw - 2rem), calc(max(33%, 36rem) - 2rem));">
 </header>
-<custom-main>
+
+<main class="mx-auto my-4 overflow-hidden" style="max-width: max(33%, 36rem);">
   <div class="mx-4">
     <custom-details :summary="userWelcomeMessage">
       <form use-if="isUserSignedIn" method="post" class="flex flex-col gap-4 mb-0 mt-4">
@@ -12,7 +13,7 @@
       <form class="flex flex-wrap gap-2 justify-start mb-0 mt-4">
         <input :value="search" name="search" enterkeyhint="search" placeholder="Find components" spellcheck="false"
           class="border border-gray-500 border-solid box-border flex-auto h-9 leading-none p-2 rounded text-base"
-          style="font-family: inherit; max-width: calc(100vw - 3rem)">
+          style="font-family: inherit; max-width: calc(100vw - 3rem);">
         <custom-button>Search</custom-button>
       </form>
     </custom-details>
@@ -40,8 +41,7 @@
       </a>
     </p>
   </div>
-</custom-main>
+</main>
 
 <link rel="element" as="custom-button" href="/system/button.html">
 <link rel="element" as="custom-details" href="/system/details.html">
-<link rel="element" as="custom-main" href="/system/main.html">

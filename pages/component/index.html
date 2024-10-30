@@ -1,4 +1,4 @@
-<custom-main>
+<main class="mx-auto my-4 overflow-hidden">
   <div class="flex flex-col gap-4 mx-4">
     <h1 class="m-0 overflow-hidden text-ellipsis whitespace-nowrap">
       <slot name="component.title"></slot>
@@ -14,7 +14,7 @@
   <div class="flex flex-wrap items-start gap-4 m-4">
     <custom-details summary="Component Preview" readonly>
       <iframe :src="component.renderHref" class="border border-gray-500 border-solid box-border block min-h-80 w-full"
-        style="height: 55vw; max-height: calc(100vh - 20.75rem)"></iframe>
+        style="height: 55vw; max-height: calc(100vh - 20.75rem);"></iframe>
       <a slot="call-to-action" target="_blank" :href="component.renderHref">
         Open in new tab
       </a>
@@ -24,8 +24,7 @@
       </custom-codearea>
     </custom-details>
   </div>
-</custom-main>
+</main>
 
 <link rel="element" as="custom-codearea" href="/system/codearea.html">
 <link rel="element" as="custom-details" href="/system/details.html">
-<link rel="element" as="custom-main" href="/system/main.html">

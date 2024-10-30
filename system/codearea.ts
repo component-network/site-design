@@ -1,9 +1,8 @@
-import type monaco from "monaco-editor";
+import type * as monaco from "monaco-editor";
 
 const globalMonaco = globalThis.monaco as typeof monaco;
 
 export interface Context {
-  compact: boolean;
   id: string;
   language: string;
   name: string;

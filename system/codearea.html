@@ -1,7 +1,8 @@
-<codearea :id :compact class="block border border-gray-500 border-solid box-border h-full w-full">
+<codearea :id class="block border border-gray-500 border-solid box-border h-full w-full"
+  style="height: 55vw; max-height: calc(100vh - 20.75rem);">
   <noscript>
     <textarea :name :content="value" :readonly autocomplete="off" autocorrect="off" spellcheck="false" wrap="off"
-      class="border-none h-full p-2 resize-none w-full" style="font-family: 'Fira Code', monospace"></textarea>
+      class="border-none h-full p-2 resize-none w-full" style="font-family: 'Fira Code', monospace;"></textarea>
   </noscript>
 </codearea>
 
@@ -21,14 +22,3 @@
 <script>
   delete globalThis.require;
 </script>
-
-<style>
-  codearea {
-    height: 55vw;
-    max-height: calc(100vh - 20.75rem);
-  }
-
-  codearea[compact] {
-    max-height: calc(100vh - 40rem);
-  }
-</style>
