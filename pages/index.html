@@ -1,47 +1,53 @@
-<header class="text-center">
-  <img :src="logoSrc" alt="The Component Network" height="384" width="1152"
-    class="border border-gray-500 border-solid h-auto mt-4 shadow-lg"
-    style="max-width: min(calc(100vw - 2rem), calc(max(33%, 36rem) - 2rem));">
-</header>
+<head>
+  <link rel="element" as="custom-button" href="/system/button.html">
+  <link rel="element" as="custom-details" href="/system/details.html">
+  <link rel="element" as="custom-layout" href="/system/layout.html">
+</head>
 
-<main class="mx-auto my-4 overflow-hidden" style="max-width: max(33%, 36rem);">
-  <div class="mx-4">
-    <custom-details :summary="userWelcomeMessage">
-      <form use-if="isUserSignedIn" method="post" class="flex flex-col gap-4 mb-0 mt-4">
-        <custom-button>New Component...</custom-button>
-      </form>
-      <form class="flex flex-wrap gap-2 justify-start mb-0 mt-4">
-        <input :value="search" name="search" enterkeyhint="search" placeholder="Find components" spellcheck="false"
-          class="border border-gray-500 border-solid box-border flex-auto h-9 leading-none p-2 rounded text-base"
-          style="font-family: inherit; max-width: calc(100vw - 3rem);">
-        <custom-button>Search</custom-button>
-      </form>
-    </custom-details>
-    <p>
-      <slot name="currentPageTitle"></slot>
-    </p>
-    <p use-if="previousPage">
-      <a :href="previousPage.href">
-        <slot name="previousPage.description"></slot>
-      </a>
-    </p>
-    <ul class="flex flex-col gap-4 list-none m-0 p-0 w-full">
-      <li use-for="component in components" :aria-label="component.title" class="m-0">
-        <custom-details :summary="component.title">
-          <a :href="component.linkHref" class="flex flex-col gap-4 mt-4">
-            <iframe :src="component.renderHref" loading="lazy" scrolling="no"
-              class="aspect-video block border border-gray-500 border-solid box-border overflow-hidden pointer-events-none w-full"></iframe>
-          </a>
+<body class="bg-neutral-100 font-sans m-0">
+  <custom-layout>
+    <header class="text-center">
+      <img :src="logoSrc" alt="The Component Network" height="384" width="1152"
+        class="border border-gray-500 border-solid h-auto mt-4 shadow-lg"
+        style="max-width: min(calc(100vw - 2rem), calc(max(33%, 36rem) - 2rem));">
+    </header>
+    <main class="mx-auto my-4 overflow-hidden" style="max-width: max(33%, 36rem);">
+      <div class="mx-4">
+        <custom-details :summary="userWelcomeMessage">
+          <form use-if="isUserSignedIn" method="post" class="flex flex-col gap-4 mb-0 mt-4">
+            <custom-button>New Component...</custom-button>
+          </form>
+          <form class="flex flex-wrap gap-2 justify-start mb-0 mt-4">
+            <input :value="search" name="search" enterkeyhint="search" placeholder="Find components" spellcheck="false"
+              class="border border-gray-500 border-solid box-border flex-auto h-9 leading-none p-2 rounded text-base"
+              style="font-family: inherit; max-width: calc(100vw - 3rem);">
+            <custom-button>Search</custom-button>
+          </form>
         </custom-details>
-      </li>
-    </ul>
-    <p use-if="nextPage">
-      <a :href="nextPage.href">
-        <slot name="nextPage.description"></slot>
-      </a>
-    </p>
-  </div>
-</main>
-
-<link rel="element" as="custom-button" href="/system/button.html">
-<link rel="element" as="custom-details" href="/system/details.html">
+        <p>
+          <slot name="currentPageTitle"></slot>
+        </p>
+        <p use-if="previousPage">
+          <a :href="previousPage.href">
+            <slot name="previousPage.description"></slot>
+          </a>
+        </p>
+        <ul class="flex flex-col gap-4 list-none m-0 p-0 w-full">
+          <li use-for="component in components" :aria-label="component.title" class="m-0">
+            <custom-details :summary="component.title">
+              <a :href="component.linkHref" class="flex flex-col gap-4 mt-4">
+                <iframe :src="component.renderHref" loading="lazy" scrolling="no"
+                  class="aspect-video block border border-gray-500 border-solid box-border overflow-hidden pointer-events-none w-full"></iframe>
+              </a>
+            </custom-details>
+          </li>
+        </ul>
+        <p use-if="nextPage">
+          <a :href="nextPage.href">
+            <slot name="nextPage.description"></slot>
+          </a>
+        </p>
+      </div>
+    </main>
+  </custom-layout>
+</body>

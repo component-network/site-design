@@ -1,6 +1,4 @@
-import type { Context as GlobalContext } from "global";
-
-export interface Context extends GlobalContext {
+export interface Context {
   component: {
     draftHref: string;
     isDraft: boolean;
@@ -13,4 +11,9 @@ export interface Context extends GlobalContext {
     template: string;
     title: string;
   };
+  faviconHref: string;
+  isUserSignedIn: boolean;
+  signInHref: string;
+  signOutHref: string;
+  userStatusMessage?: string;
 }

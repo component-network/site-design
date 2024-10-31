@@ -1,12 +1,12 @@
-import type { Context as GlobalContext } from "global";
-
-export interface Context extends GlobalContext {
+export interface Context {
   components: Array<{
     linkHref: string;
     renderHref: string;
     title: string;
   }>;
   currentPageTitle: string;
+  faviconHref: string;
+  isUserSignedIn: boolean;
   logoSrc: string;
   nextPage?: {
     description: string;
@@ -17,5 +17,8 @@ export interface Context extends GlobalContext {
     href: string;
   };
   search?: string;
+  signInHref: string;
+  signOutHref: string;
+  userStatusMessage?: string;
   userWelcomeMessage: string;
 }

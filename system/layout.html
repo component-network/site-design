@@ -1,0 +1,20 @@
+<head>
+  <link rel="shortcut icon" type="image/png" :href="faviconHref">
+  <meta itemprop="skip-tailwind-preflight">
+  <title>component.network</title>
+</head>
+
+<nav aria-label="Primary Navigation"
+  class="bg-white border-0 border-b border-gray-500 border-solid flex justify-between items-center overflow-hidden">
+  <a href="/">
+    <img :src="faviconHref" alt="The Component Network Homepage" height="384" width="1152" class="h-auto max-w-16">
+  </a>
+  <section aria-label="User Account" class="flex flex-col gap-2 items-end m-2 overflow-hidden">
+    <span use-if="isUserSignedIn" class="overflow-hidden text-ellipsis whitespace-nowrap">
+      <slot name="userStatusMessage"></slot>
+    </span>
+    <a use-if="isUserSignedIn" :href="signOutHref">Sign out</a>
+    <a use-if="!isUserSignedIn" :href="signInHref">Sign in</a>
+  </section>
+</nav>
+<slot></slot>
