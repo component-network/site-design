@@ -1,7 +1,5 @@
 import type * as monaco from "monaco-editor";
 
-const globalMonaco = globalThis.monaco as typeof monaco;
-
 export interface Context {
   id: string;
   language: string;
@@ -14,6 +12,7 @@ export default class {
   constructor({ id, language, readonly, value }: Context) {
     this.domElement = document.getElementById(id)!;
 
+    const globalMonaco = globalThis.monaco as typeof monaco;
     this.editor = globalMonaco.editor.create(this.domElement, {
       value,
       language,
