@@ -2,7 +2,7 @@ export interface Context {
   component: {
     draftHref: string;
     isDraft: boolean;
-    isEditable: string;
+    isEditable: boolean;
     manageHref: string;
     publishHref: string;
     renderHref: string;
@@ -12,8 +12,8 @@ export interface Context {
     title: string;
   };
   faviconHref: string;
-  isUserSignedIn: boolean;
   signInHref: string;
   signOutHref: string;
+  userIsSignedIn: boolean;
   userStatusMessage?: string;
 }

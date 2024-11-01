@@ -13,7 +13,7 @@
   <main class="mx-auto my-4 overflow-hidden" style="max-width: max(33%, 36rem);">
     <div class="mx-4">
       <custom-details :summary="userWelcomeMessage">
-        <form use-if="isUserSignedIn" method="post" class="flex flex-col gap-4 mb-0 mt-4">
+        <form used-if="userIsSignedIn" method="post" class="flex flex-col gap-4 mb-0 mt-4">
           <custom-button>New Component...</custom-button>
         </form>
         <form class="flex flex-wrap gap-2 justify-start mb-0 mt-4">
@@ -26,13 +26,13 @@
       <p>
         <slot name="currentPageTitle"></slot>
       </p>
-      <p use-if="previousPage">
+      <p used-if="previousPage">
         <a :href="previousPage.href">
           <slot name="previousPage.description"></slot>
         </a>
       </p>
       <ul class="flex flex-col gap-4 list-none m-0 p-0 w-full">
-        <li use-for="component in components" :aria-label="component.title" class="m-0">
+        <li used-for="component in components" :aria-label="component.title" class="m-0">
           <custom-details :summary="component.title">
             <a :href="component.linkHref" class="flex flex-col gap-4 mt-4">
               <iframe :src="component.renderHref" loading="lazy" scrolling="no"
@@ -41,7 +41,7 @@
           </custom-details>
         </li>
       </ul>
-      <p use-if="nextPage">
+      <p used-if="nextPage">
         <a :href="nextPage.href">
           <slot name="nextPage.description"></slot>
         </a>

@@ -6,7 +6,6 @@ export interface Context {
   }>;
   currentPageTitle: string;
   faviconHref: string;
-  isUserSignedIn: boolean;
   logoSrc: string;
   nextPage?: {
     description: string;
@@ -19,6 +18,7 @@ export interface Context {
   search?: string;
   signInHref: string;
   signOutHref: string;
+  userIsSignedIn: boolean;
   userStatusMessage?: string;
   userWelcomeMessage: string;
 }
