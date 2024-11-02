@@ -6,8 +6,8 @@ export interface Context {
     manageHref: string;
     publishHref: string;
     renderHref: string;
-    script?: string;
-    settings?: string;
+    script?: string | null;
+    settings?: string | null;
     template: string;
     title: string;
   };
