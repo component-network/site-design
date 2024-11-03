@@ -9,7 +9,7 @@ export interface Context {
 }
 
 export default class {
-  constructor({ id, language, readonly, value }: Context) {
+  constructor({ id, language, name, readonly, value }: Context) {
     this.domElement = document.getElementById(id)!;
 
     const globalMonaco = globalThis.monaco as typeof monaco;
@@ -24,6 +24,12 @@ export default class {
     });
 
     if (!readonly) {
+      const hiddenField = document.createElement("input");
+      hiddenField.type = "hidden";
+      hiddenField.name = name;
+      hiddenField.value = value;
+      this.domElement.appendChild(hiddenField);
+
       this.editor.onDidChangeModelContent(this.dispatchChange.bind(this));
     }
 
@@ -35,11 +41,8 @@ export default class {
   private readonly editor: monaco.editor.IStandaloneCodeEditor;
 
   private dispatchChange(): void {
-    this.domElement.dispatchEvent(
-      new CustomEvent("change", {
-        detail: this.editor.getValue(),
-      })
-    );
+    const hiddenField = this.domElement.querySelector("input")!;
+    hiddenField.value = this.editor.getValue();
   }
 
   private getResponsiveOptions() {

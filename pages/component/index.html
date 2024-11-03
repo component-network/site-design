@@ -1,4 +1,5 @@
 <head>
+  <link rel="element" as="custom-button" href="/system/button.html">
   <link rel="element" as="custom-codearea" href="/system/codearea.html">
   <link rel="element" as="custom-details" href="/system/details.html">
   <link rel="element" as="custom-layout" href="/system/layout.html">
@@ -27,11 +28,12 @@
         </div>
       </custom-details>
       <custom-details summary="Component Template">
-        <div class="mt-4">
+        <form class="flex flex-col gap-4 items-end mb-0 mt-4" method="post" :action="component.draftHref">
           <custom-codearea language="html" name="template" :readonly="!component.isEditable"
             :value="component.template">
           </custom-codearea>
-        </div>
+          <custom-button :hidden="!component.isEditable" type="submit">Save changes</custom-button>
+        </form>
       </custom-details>
     </div>
   </main>
