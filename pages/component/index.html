@@ -3,6 +3,21 @@
   <link rel="element" as="custom-codearea" href="/system/codearea.html">
   <link rel="element" as="custom-details" href="/system/details.html">
   <link rel="element" as="custom-layout" href="/system/layout.html">
+
+  <style>
+    form._pages_component__form:has(input:checked) {
+      background-color: rgb(255 255 255);
+      box-sizing: border-box;
+      height: 100dvh;
+      left: 0;
+      margin: 0;
+      padding: 0.5rem;
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      z-index: 1;
+    }
+  </style>
 </head>
 
 <custom-layout>
@@ -28,11 +43,14 @@
         </div>
       </custom-details>
       <custom-details summary="Component Template">
-        <form class="flex flex-col gap-4 items-end mb-0 mt-4" method="post" :action="component.draftHref">
+        <form class="_pages_component__form flex flex-col gap-4 mb-0 mt-4" method="post" :action="component.draftHref">
           <custom-codearea language="html" name="template" :readonly="!component.isEditable"
             :value="component.template">
           </custom-codearea>
-          <custom-button :hidden="!component.isEditable" type="submit">Save changes</custom-button>
+          <div class="flex items-end justify-between">
+            <custom-button used-if="component.isEditable" type="submit">Save</custom-button>
+            <label class="cursor-pointer flex gap-1"><input type="checkbox">Expand</label>
+          </div>
         </form>
       </custom-details>
     </div>
