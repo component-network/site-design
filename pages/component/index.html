@@ -2,22 +2,8 @@
   <link rel="element" as="custom-button" href="/system/button.html">
   <link rel="element" as="custom-codearea" href="/system/codearea.html">
   <link rel="element" as="custom-details" href="/system/details.html">
+  <link rel="element" as="custom-expander" href="/system/expander.html">
   <link rel="element" as="custom-layout" href="/system/layout.html">
-
-  <style>
-    form._pages_component__form:has(input:checked) {
-      background-color: rgb(255 255 255);
-      box-sizing: border-box;
-      height: 100dvh;
-      left: 0;
-      margin: 0;
-      padding: 0.5rem;
-      position: fixed;
-      top: 0;
-      width: 100vw;
-      z-index: 1;
-    }
-  </style>
 </head>
 
 <custom-layout>
@@ -36,21 +22,19 @@
     </div>
     <div class="flex flex-wrap items-start gap-4 m-4">
       <custom-details summary="Component Preview">
-        <div class="mt-4">
+        <custom-expander>
           <iframe :src="component.renderHref"
-            class="border border-gray-500 border-solid box-border block min-h-80 w-full"
-            style="height: 55vw; max-height: calc(100vh - 20.75rem);"></iframe>
-        </div>
+            class="block border border-gray-500 border-solid box-border h-full w-full"></iframe>
+        </custom-expander>
       </custom-details>
       <custom-details summary="Component Template">
-        <form class="_pages_component__form flex flex-col gap-4 mb-0 mt-4" method="post" :action="component.draftHref">
-          <custom-codearea language="html" name="template" :readonly="!component.isEditable"
-            :value="component.template">
-          </custom-codearea>
-          <div class="flex items-end justify-between">
-            <custom-button used-if="component.isEditable" type="submit">Save</custom-button>
-            <label class="cursor-pointer flex gap-1"><input type="checkbox">Expand</label>
-          </div>
+        <form method="post" :action="component.draftHref" class="mb-0">
+          <custom-expander>
+            <custom-codearea language="html" name="template" :readonly="!component.isEditable"
+              :value="component.template">
+            </custom-codearea>
+            <custom-button used-if="component.isEditable" slot="footer">Save</custom-button>
+          </custom-expander>
         </form>
       </custom-details>
     </div>
