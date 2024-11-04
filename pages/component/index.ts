@@ -17,3 +17,39 @@ export interface Context {
   userIsSignedIn: boolean;
   userStatusMessage?: string;
 }
+
+export default class {
+  constructor({ component }: Context) {
+    this.draftHref = component.draftHref;
+
+    document
+      .getElementById("component-template-codearea")!
+      .addEventListener("change", this.handleTemplateChange.bind(this));
+  }
+
+  private readonly draftHref: string;
+  private timeout?: ReturnType<typeof setTimeout>;
+
+  private handleTemplateChange(event: Event) {
+    clearTimeout(this.timeout);
+
+    this.timeout = setTimeout(() => {
+      const request = new XMLHttpRequest();
+      const componentPreviewIframe = document.getElementById(
+        "component-preview-iframe"
+      ) as HTMLIFrameElement;
+
+      request.addEventListener("load", () => {
+        componentPreviewIframe.src += "";
+      });
+      request.open("POST", `${this.draftHref}?async=true`);
+      request.setRequestHeader(
+        "Content-Type",
+        "application/x-www-form-urlencoded"
+      );
+      request.send(
+        `template=${encodeURIComponent((event as CustomEvent).detail)}`
+      );
+    }, 500);
+  }
+}

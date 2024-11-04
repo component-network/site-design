@@ -6,7 +6,7 @@
       min-height: 16rem;
     }
 
-    custom-expander:has(input:checked) {
+    custom-expander:has(input.custom-expander__expand:checked) {
       background-color: rgb(255 255 255);
       box-sizing: border-box;
       left: 0;
@@ -18,7 +18,7 @@
       z-index: 10;
     }
 
-    custom-expander:has(input:checked) {
+    custom-expander:has(input.custom-expander__expand:checked) {
       height: 100dvh;
       max-height: 100dvh;
     }
@@ -30,7 +30,7 @@
   <div class="flex items-end justify-between mb-1">
     <slot name="footer"></slot>
     <label class="cursor-pointer flex gap-1">
-      <input type="checkbox">Expand
+      <input class="custom-expander__expand" type="checkbox">Expand
     </label>
   </div>
 </custom-expander>

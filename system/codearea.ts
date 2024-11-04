@@ -41,8 +41,16 @@ export default class {
   private readonly editor: monaco.editor.IStandaloneCodeEditor;
 
   private dispatchChange(): void {
+    const editorValue = this.editor.getValue();
     const hiddenField = this.domElement.querySelector("input")!;
-    hiddenField.value = this.editor.getValue();
+
+    hiddenField.value = editorValue;
+
+    this.domElement.dispatchEvent(
+      new CustomEvent("change", {
+        detail: editorValue,
+      })
+    );
   }
 
   private getResponsiveOptions() {

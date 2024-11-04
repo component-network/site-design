@@ -23,15 +23,15 @@
     <div class="flex flex-wrap items-start gap-4 m-4">
       <custom-details summary="Component Preview">
         <custom-expander>
-          <iframe :src="component.renderHref"
+          <iframe id="component-preview-iframe" :src="component.renderHref"
             class="block border border-gray-500 border-solid box-border h-full w-full"></iframe>
         </custom-expander>
       </custom-details>
       <custom-details summary="Component Template">
-        <form method="post" :action="component.draftHref" class="mb-0">
+        <form id="component-template-form" method="post" :action="component.draftHref" class="mb-0">
           <custom-expander>
-            <custom-codearea language="html" name="template" :readonly="!component.isEditable"
-              :value="component.template">
+            <custom-codearea id="component-template-codearea" language="html" name="template"
+              :readonly="!component.isEditable" :value="component.template">
             </custom-codearea>
             <custom-button used-if="component.isEditable" slot="footer">Save</custom-button>
           </custom-expander>
