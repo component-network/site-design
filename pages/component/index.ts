@@ -31,6 +31,10 @@ export default class {
   private timeout?: ReturnType<typeof setTimeout>;
 
   private handleTemplateChange(event: Event) {
+    if (!(event instanceof CustomEvent)) {
+      return;
+    }
+
     clearTimeout(this.timeout);
 
     this.timeout = setTimeout(() => {
@@ -47,9 +51,7 @@ export default class {
         "Content-Type",
         "application/x-www-form-urlencoded"
       );
-      request.send(
-        `template=${encodeURIComponent((event as CustomEvent).detail)}`
-      );
+      request.send(`template=${encodeURIComponent(event.detail)}`);
     }, 500);
   }
 }
