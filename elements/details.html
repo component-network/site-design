@@ -1,0 +1,21 @@
+<head>
+  <style>
+    details.___details[size=small] {
+      flex-basis: 16rem;
+      flex-grow: 1;
+    }
+
+    details.___details[size=medium] {
+      flex-basis: 32rem;
+      flex-grow: 3;
+    }
+  </style>
+</head>
+
+<details :size open="!closed"
+  class="___details bg-white border border-gray-500 border-solid box-border p-2 rounded-lg shadow-md w-full">
+  <summary class="cursor-pointer font-bold overflow-hidden select-none text-ellipsis whitespace-nowrap">
+    <slot name="summary"></slot>
+  </summary>
+  <slot></slot>
+</details>

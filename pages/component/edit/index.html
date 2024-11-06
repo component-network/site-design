@@ -1,0 +1,15 @@
+<head>
+  <link rel="element" as="custom-codearea" href="/elements/codearea.html">
+  <link rel="element" as="custom-layout" href="/layouts/component/edit.html">
+</head>
+
+<custom-layout>
+  <div slot="tabs" class="flex text-sm">
+    <p class="border border-b-0 border-gray-500 border-solid m-0 px-2 py-1 rounded-t">Template</p>
+    <a class="cursor-pointer px-2 py-1" :href="component.scriptHref">Script</a>
+    <a class="cursor-pointer px-2 py-1" :href="component.settingsHref">Settings</a>
+  </div>
+  <custom-codearea slot="codearea" id="component-template-codearea" language="html" name="template"
+    :readonly="!component.isEditable" :value="component.template">
+  </custom-codearea>
+</custom-layout>

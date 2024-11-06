@@ -13,15 +13,25 @@ export default class {
     this.domElement = document.getElementById(id)!;
 
     const globalMonaco = globalThis.monaco as typeof monaco;
-    this.editor = globalMonaco.editor.create(this.domElement, {
-      value,
-      language,
-      readOnly: readonly,
-      theme: "hc-light",
-      fontFamily: "'Fira Code', monospace",
-      tabSize: 2,
-      ...this.getResponsiveOptions(),
-    });
+    this.editor = globalMonaco.editor.create(
+      this.domElement,
+      {
+        value,
+        language,
+        readOnly: readonly,
+        theme: "hc-light",
+        fontFamily: "'Fira Code', monospace",
+        tabSize: 2,
+        ...this.getResponsiveOptions(),
+      },
+      {
+        openerService: {
+          open(resource: string) {
+            location.href = `/user/${resource}`;
+          },
+        },
+      }
+    );
 
     if (!readonly) {
       const hiddenField = document.createElement("input");
